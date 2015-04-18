@@ -16,6 +16,10 @@ public class Projeto_SO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        int num_pag = 10;
+        SO so =  new SO(2 * num_pag,num_pag, 2 * num_pag); // Iniciando o SO
+        
+        
     }
     
 }
