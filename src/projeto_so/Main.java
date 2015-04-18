@@ -9,7 +9,7 @@ package projeto_so;
  *
  * @author Renan
  */
-public class Projeto_SO {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -18,7 +18,13 @@ public class Projeto_SO {
         // TODO code application logic here
         int num_pag = 10;
         SO so =  new SO(2 * num_pag,num_pag, 2 * num_pag); // Iniciando o SO
+       
+        System.out.println("Tamanho memoria virtual:" + so.mv.mmu.mapa.size());
+
+        System.out.println("Tamanho memoria Fisica:" + so.mf.paginas.size());
         
+        System.out.println("Tamanho disco:" + so.hd.paginas.size());
+
         
     }
     

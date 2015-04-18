@@ -9,8 +9,9 @@ package projeto_so;
  *
  * @author Renan
  */
-public interface TrocarPagina {
+public class CelulaVirtual {
     
-    public void trocaPag(int pag_resgatada);
+    public int endereco_virtual, endereco_fisico;
+    public boolean presente = false;
     
 }

@@ -11,18 +11,15 @@ import java.util.ArrayList;
  *
  * @author Renan
  */
-public class MemoriaVirtual{
+public class MMU {
     
-    MMU mmu;
-        
-    public MemoriaVirtual(int num_pag){
+    ArrayList<CelulaVirtual> mapa;
     
-        this.mmu = new MMU(num_pag);
-        
+    public MMU(int tamanho){
+        this.mapa = new ArrayList<CelulaVirtual>(tamanho);
+        for (int i = 0; i < tamanho; i++) {
+            this.mapa.add(new CelulaVirtual());
+        }
     }
-    
-   
-    
-    
     
 }
