@@ -18,7 +18,7 @@ public class SO {
     public SO(int hd_pag, int mf_pag, int mv_pag){
         
         this.hd = new HD(hd_pag);
-        this.mv = new MemoriaVirtual(mv_pag);
+        this.mv = new MemoriaVirtual();
         this.mf = new MemoriaFisica(mf_pag);
     
     }
