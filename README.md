@@ -1,3 +1,1 @@
-# ProjetoSO
-
 # GUTO GAY
