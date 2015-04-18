@@ -13,14 +13,6 @@ import java.util.ArrayList;
  */
 public class MemoriaVirtual implements TrocarPagina{
     
-      ArrayList<Pagina> paginas;
-      
-      public MemoriaVirtual(int num_pag){
-        
-        this.paginas = new ArrayList<Pagina>(num_pag);
-    
-    }
-
     public int pegarValor(int indice_pagina){return 0;} 
     
     public void atualizarValor(int indice_pagina, float valor){} 
