@@ -9,10 +9,8 @@ package projeto_so;
  *
  * @author Renan
  */
-public class Pagina {
+public interface TrocarPagina {
     
-    public boolean referenciada = false, modificada = false, presente = false;
-    int tempo_virtual=0;
-    
+    public void trocaPag(int pag_resgatada);
     
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Renan
  */
-public class MemoriaVirtual {
+public class MemoriaVirtual implements TrocarPagina{
     
       ArrayList<Pagina> paginas;
       
@@ -21,6 +21,15 @@ public class MemoriaVirtual {
     
     }
 
-   
+    public int pegarValor(int indice_pagina){return 0;} 
+    
+    public void atualizarValor(int indice_pagina, float valor){} 
+
+    @Override
+    public void trocaPag(int pag_resgatada) {
+        
+    }
+    
+    
     
 }
