@@ -29,12 +29,19 @@ public class SO {
     
         public int pegarValor(int indice_pagina){
         
-            this.trocador.trocarPag(2); // Exemplo de Troca de página. Vou tirar a página de indice 2 da memória física e pegar uma página do disco de acordo com o algoritmo que vou implementar.
+            //this.trocador.trocarPag(2); // Exemplo de Troca de página. Vou tirar a página de indice 2 da memória física e pegar uma página do disco de acordo com o algoritmo que vou implementar.
+            
+            
+            
             return 0;
         
         } 
     
-        public void atualizarValor(int indice_pagina, float valor){} 
+        public void atualizarValor(int indice_pagina, float valor){
+        
+        
+        
+        } 
         
     
     

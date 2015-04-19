@@ -16,10 +16,16 @@ public class MMU {
     ArrayList<CelulaVirtual> mapa;
     
     public MMU(int tamanho){
+        
         this.mapa = new ArrayList<CelulaVirtual>(tamanho);
+        
         for (int i = 0; i < tamanho; i++) {
             this.mapa.add(new CelulaVirtual());
+            
         }
     }
+    
+    
+    
     
 }
