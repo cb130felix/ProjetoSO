@@ -15,6 +15,7 @@ public class SO {
     MemoriaFisica mf;
     MemoriaVirtual mv;
     TrocadorDePagina trocador;
+    int ultimo = 0;
     
     public SO(int hd_pag, int mf_pag, int mv_pag){
         
@@ -27,26 +28,48 @@ public class SO {
         
     }
     
-        public int pegarValor(int indice_pagina){ // vamos dizer que esse indice é 2
+        public float pegarValor(int indice_pagina){ // vamos dizer que esse indice é 2
         
-            int numero = 0;
+            
             //this.trocador.trocarPag(2); // Exemplo de Troca de página. Vou tirar a página de indice 2 da memória física e pegar uma página do disco de acordo com o algoritmo que vou implementar.
             
              if(mv.mmu.mapa.get(indice_pagina).presente == false){//arrudeio de fresco do carai
                  
-                 mf.paginas.get(numero).valor = hd.paginas.get(indice_pagina).valor;
+                 mf.paginas.get(ultimo).valor = hd.paginas.get(indice_pagina).valor;
                  mv.mmu.mapa.get(indice_pagina).endereco_virtual = indice_pagina;
-                 mv.mmu.mapa.get(indice_pagina).endereco_fisico = numero;// tá bixado, tem que arrumar issaqui
+                 mv.mmu.mapa.get(indice_pagina).endereco_fisico = ultimo;// ROLA!
+                 
+                 ultimo++;
+                 
+                 return mf.paginas.get(ultimo).valor;
+             }
              
+             else{
+                 
+                int endereco =  mv.mmu.mapa.get(indice_pagina).endereco_fisico;
+                
+                return mf.paginas.get(endereco).valor;
              }
             
-            return 0;
         
         } 
     
-        public void atualizarValor(int indice_pagina, float valor){
+        public void atualizarValor(int indice_pagina, float valor){//indice pagina é o indice da memoria virutal na qual será escrita
         
-        
+            
+            if(mv.mmu.mapa.get(indice_pagina).presente == false){
+            
+            // sei lá o que faz...
+            }
+            
+            else{
+            
+                int indice = mv.mmu.mapa.get(indice_pagina).endereco_fisico;
+                    
+                mf.paginas.get(indice).valor = valor; 
+                
+            }
+            
         
         } 
         
