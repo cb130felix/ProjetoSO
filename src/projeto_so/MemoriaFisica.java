@@ -14,12 +14,15 @@ import java.util.ArrayList;
 public class MemoriaFisica {
     
     ArrayList<Pagina> paginas;
+  
     
     public MemoriaFisica(int num_pag){
         
         this.paginas = new ArrayList<Pagina>();
+        
         for (int i = 0; i < num_pag; i++) {
             this.paginas.add(new Pagina());
+        
         }
     
     }

@@ -27,11 +27,18 @@ public class SO {
         
     }
     
-        public int pegarValor(int indice_pagina){
+        public int pegarValor(int indice_pagina){ // vamos dizer que esse indice é 2
         
+            int numero = 0;
             //this.trocador.trocarPag(2); // Exemplo de Troca de página. Vou tirar a página de indice 2 da memória física e pegar uma página do disco de acordo com o algoritmo que vou implementar.
             
-            
+             if(mv.mmu.mapa.get(indice_pagina).presente == false){//arrudeio de fresco do carai
+                 
+                 mf.paginas.get(numero).valor = hd.paginas.get(indice_pagina).valor;
+                 mv.mmu.mapa.get(indice_pagina).endereco_virtual = indice_pagina;
+                 mv.mmu.mapa.get(indice_pagina).endereco_fisico = numero;// tá bixado, tem que arrumar issaqui
+             
+             }
             
             return 0;
         

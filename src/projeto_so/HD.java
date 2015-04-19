@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class HD {
     
       ArrayList<Pagina> paginas;
+     
 
     public HD(int num_pag){
         

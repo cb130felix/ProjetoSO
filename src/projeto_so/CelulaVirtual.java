@@ -14,4 +14,5 @@ public class CelulaVirtual {
     public int endereco_virtual, endereco_fisico;
     public boolean presente = false;
     
+    
 }
