@@ -26,7 +26,7 @@ public class Main {
         System.out.println("Tamanho disco:" + so.hd.paginas.size());
         
         
-        float a = so.pegarValor(3);
+        float a = so.pegarValor(5); // só pra teste
         
         System.out.println("Valor: "+a);
         
