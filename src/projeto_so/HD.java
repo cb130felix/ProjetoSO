@@ -21,7 +21,7 @@ public class HD {
         this.paginas = new ArrayList<Pagina>();
         
         for (int i = 0; i < num_pag; i++) {
-            this.paginas.add(new Pagina());
+            this.paginas.add(new Pagina(i));
             
         }
     

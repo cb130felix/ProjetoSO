@@ -34,14 +34,17 @@ public class SO {
             //this.trocador.trocarPag(2); // Exemplo de Troca de página. Vou tirar a página de indice 2 da memória física e pegar uma página do disco de acordo com o algoritmo que vou implementar.
             
              if(mv.mmu.mapa.get(indice_pagina).presente == false){//arrudeio de fresco do carai
+                
+                 float temp;
                  
-                 mf.paginas.get(ultimo).valor = hd.paginas.get(indice_pagina).valor;
-                 mv.mmu.mapa.get(indice_pagina).endereco_virtual = indice_pagina;
+                 mf.paginas.set(ultimo, new Pagina(hd.paginas.get(indice_pagina).valor));
+                 mv.mmu.mapa.get(indice_pagina).endereco_virtual = indice_pagina; // é dispensável!
                  mv.mmu.mapa.get(indice_pagina).endereco_fisico = ultimo;// ROLA!
                  
+                 temp = mf.paginas.get(ultimo).valor;
                  ultimo++;
                  
-                 return mf.paginas.get(ultimo).valor;
+                 return temp;
              }
              
              else{

@@ -24,7 +24,12 @@ public class Main {
         System.out.println("Tamanho memoria Fisica:" + so.mf.paginas.size());
         
         System.out.println("Tamanho disco:" + so.hd.paginas.size());
-
+        
+        
+        float a = so.pegarValor(3);
+        
+        System.out.println("Valor: "+a);
+        
         
     }
     

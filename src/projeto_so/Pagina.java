@@ -14,6 +14,15 @@ public class Pagina {
     public boolean referenciada = false, modificada = false, presente = false;
     int tempo_virtual=0;
     public float valor;
+
+    public Pagina(float valor) {
+        this.valor = valor;
+    }
+
+    public Pagina() {
+    }
+    
+    
     
     
 }
