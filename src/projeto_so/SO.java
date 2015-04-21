@@ -48,7 +48,8 @@ public class SO {
              }
              
              else{
-                 
+                
+                
                 int endereco =  mv.mmu.mapa.get(indice_pagina).endereco_fisico;
                 
                 return mf.paginas.get(endereco).valor;

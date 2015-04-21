@@ -29,8 +29,11 @@ public class Main {
         float a = so.pegarValor(5); // só pra teste
         
         System.out.println("Valor: "+a);
+        System.out.println("RAM(1) "+so.mf.paginas.get(0).valor);
         
-        
+        float b = so.pegarValor(7);
+        System.out.println("Valor B "+b);
+        System.out.println("RAM(2) "+so.mf.paginas.get(1).valor);
     }
     
 }
