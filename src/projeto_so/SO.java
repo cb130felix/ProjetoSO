@@ -38,6 +38,8 @@ public class SO {
                  float temp;
                  
                  mf.paginas.set(ultimo, new Pagina(hd.paginas.get(indice_pagina).valor));
+                 mf.paginas.get(ultimo).referenciada = true;
+                 
                  mv.mmu.mapa.get(indice_pagina).endereco_virtual = indice_pagina; // é dispensável!
                  mv.mmu.mapa.get(indice_pagina).endereco_fisico = ultimo;// ROLA!
                  mv.mmu.mapa.get(indice_pagina).presente = true;
@@ -48,11 +50,12 @@ public class SO {
                  return temp;
              }
              
+             
              else{
-                
-                
+                 
                 int endereco =  mv.mmu.mapa.get(indice_pagina).endereco_fisico;
                 
+                mf.paginas.get(endereco).referenciada = true;
                 return mf.paginas.get(endereco).valor;
              }
             
@@ -72,7 +75,7 @@ public class SO {
                 int indice = mv.mmu.mapa.get(indice_pagina).endereco_fisico;
                     
                 mf.paginas.get(indice).valor = valor; 
-                
+                mf.paginas.get(indice).modificada = true;
             }
             
         
