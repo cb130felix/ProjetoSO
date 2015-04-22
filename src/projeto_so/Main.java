@@ -29,11 +29,17 @@ public class Main {
         float a = so.pegarValor(5); // só pra teste
         
         System.out.println("Valor: "+a);
-        System.out.println("RAM(1) "+so.mf.paginas.get(0).valor);
+        System.out.println("RAM(0) "+so.mf.paginas.get(0).valor);
         
         float b = so.pegarValor(7);
         System.out.println("Valor B "+b);
-        System.out.println("RAM(2) "+so.mf.paginas.get(1).valor);
+        System.out.println("RAM(1) "+so.mf.paginas.get(1).valor);
+        
+        so.atualizarValor(5, a+b);
+        
+        System.out.println("Novo valor do incide 5 da memoria virtual apos ser escrito "+so.pegarValor(5));
+        System.out.println("Memoria ram indice 0: "+so.mf.paginas.get(0).valor);
+        System.out.println("Memoria ram indice 1: "+so.mf.paginas.get(1).valor);
     }
     
 }

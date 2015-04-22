@@ -40,6 +40,7 @@ public class SO {
                  mf.paginas.set(ultimo, new Pagina(hd.paginas.get(indice_pagina).valor));
                  mv.mmu.mapa.get(indice_pagina).endereco_virtual = indice_pagina; // é dispensável!
                  mv.mmu.mapa.get(indice_pagina).endereco_fisico = ultimo;// ROLA!
+                 mv.mmu.mapa.get(indice_pagina).presente = true;
                  
                  temp = mf.paginas.get(ultimo).valor;
                  ultimo++;
@@ -62,12 +63,12 @@ public class SO {
         
             
             if(mv.mmu.mapa.get(indice_pagina).presente == false){
-            
+                
             // sei lá o que faz...
             }
             
             else{
-            
+                
                 int indice = mv.mmu.mapa.get(indice_pagina).endereco_fisico;
                     
                 mf.paginas.get(indice).valor = valor; 

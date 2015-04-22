@@ -17,6 +17,7 @@ public class Pagina {
 
     public Pagina(float valor) {
         this.valor = valor;
+        
     }
 
     public Pagina() {
