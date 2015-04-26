@@ -34,6 +34,8 @@ public class Clock extends Thread{
                 Logger.getLogger(Clock.class.getName()).log(Level.SEVERE, null, ex);
             }
             time++;
+            mv.tempoVirtual++;
+            //System.out.println(time);
             for (int i = 0; i < mv.paginas.size(); i++) {
                 if(mv.paginas.get(i).referenciado == true){
                     mv.paginas.get(i).referenciado = false;

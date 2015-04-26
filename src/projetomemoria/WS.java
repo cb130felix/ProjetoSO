@@ -5,34 +5,63 @@
  */
 package projetomemoria;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Renan
  */
 public class WS {
+
     
-    Virtual mv;
+
     
-    public WS(Virtual mv){
+    public int executarWs(int tempoVirtual, ArrayList<Pagina> paginas){
     
-        this.mv = mv;
-    
-    }
-    
-    public int executarWs(){
-    
-    
-        for(int i = 0; i < mv.paginas.size(); i++){
+        int idade = 0, t = 20, indicePaginaAntiga = -1, maiorIdade = 0;
         
-            if(mv.paginas.get(i).referenciado == true){
+        
+        
+        for(int i = 0; i < paginas.size(); i++){
+        
+            if(paginas.get(i).presente == true){
                 
-                
-            
+                if(paginas.get(i).referenciado == true){
+
+                    paginas.get(i).tempo = tempoVirtual;
+
+                }else{
+
+                    idade = paginas.get(i).tempo - tempoVirtual;
+
+                    if(idade > t){
+                        indicePaginaAntiga = i;
+                    }
+                    
+                    if(idade > maiorIdade){
+                            maiorIdade = idade;
+                            indicePaginaAntiga = i;
+                    }
+                    
+
+
+                }
             }
             
         }
         
-        return 0;
+        if(indicePaginaAntiga == -1){
+        //Caso aconteça de todas as páginas estarem com referenciado == true
+             for(int i = 0; i < paginas.size(); i++){
+                 if(paginas.get(i).presente == true){
+                     return i;
+                 
+                 }
+             }
+        
+        }
+        
+        return indicePaginaAntiga;
     
     }
     

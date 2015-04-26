@@ -13,10 +13,13 @@ import java.util.ArrayList;
  */
 public class Virtual {
     
+    
     HD hd ;
     RAM memoriaFisica;
     ArrayList<Pagina> paginas = new ArrayList<Pagina>();
-    int ultimo = 0;
+    int ultimo = 0, tempoVirtual=0;
+    WS ws = new WS();
+    
     
     Virtual(HD hd, RAM ram){
             this.hd = hd;
@@ -28,11 +31,13 @@ public class Virtual {
            
         }
         
+ 
+        
     }
     
     
     public Integer pegarValor(int endereco){
-    
+        
         int temp = -1,teste = 0;
         
         if(paginas.get(endereco).presente == false){// verificando se existe mapeamento
@@ -56,11 +61,28 @@ public class Virtual {
             }// fim do for
             
             if(teste == memoriaFisica.valores.size()){
+                
+                
+                int indicePaginaDescartada=0;
                 // FAZ O WS AQUI, GAY!
                 // SE EU NÃO ME ENGANO, O MÉTODO DE WS IRÁ ME RETORNAR QUAL INDICE DA MEMORIA RAM QUE EU VOU PODER DESCATAR
                 // AÍ É SÓ PEGAR ESSE VALOR, VERIFICAR AS RESTRIÇÕES (AQUELA PUTARIA DE MODIFICADO, ALTERADO, REFERECIADO)
                 // E ATUALIZAR A MEMÓRIA NESSE TAL INDICE. CASO EU TENHA ALGUMA RESTRIÇÃO, EU VOU SALVAR ALGO NO HD (OU NÃO).
                 // temp = moldura do retorno do ws;
+               
+                indicePaginaDescartada = ws.executarWs(tempoVirtual, paginas);
+                //System.out.println("Falta de página! Entrou[" + endereco + "] / Saiu["+indicePaginaDescartada+"}");
+                //System.out.println(paginas.get(indicePaginaDescartada).enderecoFisico);
+                temp = paginas.get(indicePaginaDescartada).enderecoFisico;
+                
+                if(paginas.get(teste).modificada == true){
+                //Atualiza o disco
+                    this.hd.valores.set(indicePaginaDescartada, memoriaFisica.valores.get(temp));
+                }
+                
+                paginas.get(indicePaginaDescartada).limpar();
+                
+            }else{//System.out.println("Tinha espaço de memória!");
                 
             }
             

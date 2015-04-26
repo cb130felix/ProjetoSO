@@ -17,4 +17,14 @@ public class Pagina {
     boolean presente = false;
     Integer enderecoFisico = null, tempo = 0;
     
+    public void limpar(){
+    
+        referenciado = false;
+        modificada = false;
+        presente = false;
+        enderecoFisico = null;
+        tempo = 0;
+        
+    }
+    
 }

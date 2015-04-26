@@ -14,8 +14,9 @@ public class ProjetoMemoria {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-       
+    public static void main(String[] args) throws InterruptedException {
+      
+        /*
         int tamanho = 10;
         RAM r = new RAM(tamanho/2);
         HD h = new HD(tamanho);
@@ -31,6 +32,11 @@ public class ProjetoMemoria {
         
         int c =  v.pegarValor(2);
         System.out.println("Novo c: "+c);
+        */
+        
+        SistemaOperacional so = new SistemaOperacional(20);
+        so.addProcesso(new Processo(0,15));
+        so.iniciarProcessos();
         
     }
     
