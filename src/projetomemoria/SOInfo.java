@@ -23,11 +23,16 @@ public class SOInfo extends Thread{
     public void interfaceTexto() throws InterruptedException{
         while(true){
              
-                    System.out.println("Tempo: " + so.clock.time);
-                    
                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    
+                    System.out.println("Tempo virtual: " + so.clock.time);
+                    for (int i = 0; i < so.processos.size(); i++) {
+                        
+                        System.out.println("Processo["+i+"]"+": " + so.processos.get(i).emExecucao);
+                    }
+
                     for(int i = 0; i < so.mv.paginas.size(); i++){
-                    System.out.println("Virtual["+i+"]-> M: " + so.mv.paginas.get(i).modificada + " /R: " + so.mv.paginas.get(i).referenciado + " /P:" + so.mv.paginas.get(i).presente + " /Molddura: " + so.mv.paginas.get(i).enderecoFisico);
+                    System.out.println("Virtual["+i+"]-> M: " + so.mv.paginas.get(i).modificada + " /R: " + so.mv.paginas.get(i).referenciado + " /P:" + so.mv.paginas.get(i).presente + " /Molddura: " + so.mv.paginas.get(i).enderecoFisico + "   /Tempo: " + so.mv.paginas.get(i).tempo);
                     }
                     sleep(1000);
 

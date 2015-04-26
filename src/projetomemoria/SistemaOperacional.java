@@ -32,6 +32,7 @@ public class SistemaOperacional {
    
        for(int i = 0 ; i < processos.size(); i++){
            processos.get(i).start();
+           processos.get(i).emExecucao = true;
        }
        SOInfo info = new SOInfo(this);
        info.start();

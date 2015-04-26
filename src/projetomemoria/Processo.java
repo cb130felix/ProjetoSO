@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  */
 public class Processo extends Thread{
     
+    boolean emExecucao;
     Virtual mv;
     int inicioRam, finalRam, tamanho;
     
@@ -34,6 +35,7 @@ public class Processo extends Thread{
             System.out.println("..."+(i+inicioRam));
             mv.pegarValor(i+inicioRam);
         }
+        emExecucao = false;
         
     }
     
