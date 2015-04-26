@@ -15,45 +15,25 @@ public class ProjetoMemoria {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws InterruptedException {
-      
-        /*
-        int tamanho = 10;
-        RAM r = new RAM(tamanho/2);
-        HD h = new HD(tamanho);
-        Virtual v = new Virtual(h, r);
+     
         
-        int a = v.pegarValor(2);
-        System.out.println("A: "+a);
-        
-        int b = v.pegarValor(5);
-        System.out.println("B: "+b);
-        
-        v.atualizarValor(2, b+a);
-        
-        int c =  v.pegarValor(2);
-        System.out.println("Novo c: "+c);
-        */
-        
-       
+        int exemplo = 1;
         SistemaOperacional so = new SistemaOperacional(20);
-        //Exemplo 1
         
-        so.addProcesso(new Processo(0,10));
-        so.addProcesso(new Processo(11,15));
-        so.addProcesso(new Processo(16,19));
         
-        //Exemplo 2
-        /*
-        so.addProcesso(new Processo(0,17));
-        so.addProcesso(new Processo(17,19));
-        */
+        if(exemplo == 1){
+            so.addProcesso(new Processo(0,10));
+            so.addProcesso(new Processo(11,15));
+            so.addProcesso(new Processo(16,19));
+        }else if(exemplo == 2){
+            so.addProcesso(new Processo(0,17));
+            so.addProcesso(new Processo(17,19));
         
+        }
         
         so.iniciarProcessos();
        
-        
-        
-               
+       
         
     }
    

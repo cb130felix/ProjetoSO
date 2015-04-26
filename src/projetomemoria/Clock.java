@@ -32,7 +32,7 @@ public class Clock extends Thread{
             
             
             try {
-                this.sleep(2000);
+                this.sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Clock.class.getName()).log(Level.SEVERE, null, ex);
             }

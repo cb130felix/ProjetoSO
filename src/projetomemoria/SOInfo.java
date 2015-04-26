@@ -26,15 +26,18 @@ public class SOInfo extends Thread{
                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                     
                     System.out.println("Tempo virtual: " + so.clock.time);
+                    
                     for (int i = 0; i < so.processos.size(); i++) {
                         
                         System.out.println("Processo["+i+"]"+": " + " /Inicio: " + so.processos.get(i).inicioRam + " /Proximo comando: " + so.processos.get(i).lerComando() );
                     }
-
+                    
+                    System.out.println("");
+                    
                     for(int i = 0; i < so.mv.paginas.size(); i++){
                     System.out.println("Virtual["+i+"]-> M: " + so.mv.paginas.get(i).modificada + " /R: " + so.mv.paginas.get(i).referenciado + " /P:" + so.mv.paginas.get(i).presente + " /Molddura: " + so.mv.paginas.get(i).enderecoFisico + " /Tempo: " + so.mv.paginas.get(i).tempo);
                     }
-                    sleep(1000);
+                    sleep(300);
                     int j = 0;
                     int i;
                     for( i = 0 ; i < so.processos.size(); i++){
