@@ -82,13 +82,49 @@ public class Virtual {
     }// FIM DO MÉTODO PEGAR VALOR
     
     public void atualizarValor(int endereco,  int valor){
-
+        
+        int temp = -1,teste = 0;
+        
         if(paginas.get(endereco).presente == true){
         
             memoriaFisica.valores.set(paginas.get(endereco).enderecoFisico, valor);
         
         }
         
+        
+       
+        else{
+        
+            for (int x = 0; x < memoriaFisica.valores.size(); x++) {
+                
+                if(memoriaFisica.valores.get(x) == null){
+                
+                    temp = x;
+                    break;
+                }
+                
+                else{// se esse contador for do tamanho da memoria fisica, quer dizer que todos o endereços de memoria estão cheios
+                    
+                    teste++;
+                
+                }
+                
+            }// fim do for
+            
+            
+            if(teste == memoriaFisica.valores.size()){
+                
+                    // FUDEU, WS!
+                    
+                }
+                
+                memoriaFisica.valores.set(temp,(Integer)valor);
+                paginas.get(endereco).modificada = true;
+                paginas.get(endereco).presente = true;
+                paginas.get(endereco).referenciado = true;
+                paginas.get(endereco).enderecoFisico = temp;
+            
+        }
         
         
     }
