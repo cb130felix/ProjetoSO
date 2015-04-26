@@ -29,11 +29,12 @@ public class Processo extends Thread{
     
     void teste() throws InterruptedException{
     
-        for(int i = 0; i < tamanho; i++){
+        for(int i = 0; i <= tamanho; i++){
             
             this.sleep(1000);
-            System.out.println("..."+(i+inicioRam));
             mv.pegarValor(i+inicioRam);
+            
+            
         }
         emExecucao = false;
         

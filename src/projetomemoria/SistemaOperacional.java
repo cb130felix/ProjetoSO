@@ -33,6 +33,7 @@ public class SistemaOperacional {
        for(int i = 0 ; i < processos.size(); i++){
            processos.get(i).start();
            processos.get(i).emExecucao = true;
+           
        }
        SOInfo info = new SOInfo(this);
        info.start();
@@ -57,5 +58,9 @@ public class SistemaOperacional {
 
        
    }
+
+    private void sleep(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

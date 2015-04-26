@@ -36,7 +36,7 @@ public class Virtual {
     }
     
     
-    public Integer pegarValor(int endereco){
+    public synchronized Integer pegarValor(int endereco){
         
         int temp = -1,teste = 0;
         
