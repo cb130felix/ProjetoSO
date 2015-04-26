@@ -47,20 +47,5 @@ public class SistemaOperacional {
        
    }
    
-   public void teste() throws InterruptedException{
-   
-       for (int i = 0; i < this.mv.memoriaFisica.valores.size() +(this.mv.memoriaFisica.valores.size()/2) ; i++) {
-           
-           this.mv.pegarValor(i);
-          
-           
-       }
-
        
-   }
-
-    private void sleep(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

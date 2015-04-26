@@ -16,6 +16,7 @@ public class Clock extends Thread{
    
     Virtual mv;
     public int time = 0;
+    boolean ligado = true;
     
     Clock(Virtual mv){
     
@@ -25,7 +26,9 @@ public class Clock extends Thread{
     
     public void run(){
         
-        while(true){
+        
+        
+        while(ligado){
             
             
             try {

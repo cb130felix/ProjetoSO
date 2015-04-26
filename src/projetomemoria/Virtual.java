@@ -78,6 +78,7 @@ public class Virtual {
             memoriaFisica.valores.set(temp, hd.valores.get(endereco)); 
             paginas.get(endereco).referenciado = true;
             paginas.get(endereco).presente = true;
+            paginas.get(endereco).tempo = tempoVirtual;
             paginas.get(endereco).enderecoFisico = temp;
             
             return memoriaFisica.valores.get(temp);
@@ -85,6 +86,7 @@ public class Virtual {
         
         
         else{// AQUI É QUANDO A PÁGINA ESTÁ PRESENTE
+            paginas.get(endereco).referenciado = true;
             return memoriaFisica.valores.get(paginas.get(endereco).enderecoFisico);
                    
         }
@@ -98,6 +100,8 @@ public class Virtual {
         
         if(paginas.get(endereco).presente == true){
         
+            paginas.get(endereco).modificada = true;
+            paginas.get(endereco).referenciado = true;
             memoriaFisica.valores.set(paginas.get(endereco).enderecoFisico, valor);
         
         }
@@ -143,6 +147,7 @@ public class Virtual {
                 paginas.get(endereco).modificada = true;
                 paginas.get(endereco).presente = true;
                 paginas.get(endereco).referenciado = true;
+                paginas.get(endereco).tempo = tempoVirtual;
                 paginas.get(endereco).enderecoFisico = temp;
             
         }

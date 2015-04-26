@@ -29,9 +29,8 @@ public class WS {
                     paginas.get(i).tempo = tempoVirtual;
 
                 }else{
-
-                    idade = paginas.get(i).tempo - tempoVirtual;
-
+                    idade =  tempoVirtual - paginas.get(i).tempo;
+                   
                     if(idade > t){
                         indicePaginaAntiga = i;
                     }
@@ -39,8 +38,8 @@ public class WS {
                     if(idade > maiorIdade){
                             maiorIdade = idade;
                             indicePaginaAntiga = i;
+                            
                     }
-                    
 
 
                 }
@@ -52,13 +51,14 @@ public class WS {
         //Caso aconteça de todas as páginas estarem com referenciado == true
              for(int i = 0; i < paginas.size(); i++){
                  if(paginas.get(i).presente == true){
+ 
                      return i;
                  
                  }
              }
         
         }
-        
+
         return indicePaginaAntiga;
     
     }

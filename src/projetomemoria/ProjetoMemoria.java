@@ -36,9 +36,19 @@ public class ProjetoMemoria {
         
        
         SistemaOperacional so = new SistemaOperacional(20);
+        //Exemplo 1
+        
         so.addProcesso(new Processo(0,10));
         so.addProcesso(new Processo(11,15));
         so.addProcesso(new Processo(16,19));
+        
+        //Exemplo 2
+        /*
+        so.addProcesso(new Processo(0,17));
+        so.addProcesso(new Processo(17,19));
+        */
+        
+        
         so.iniciarProcessos();
        
         

@@ -24,20 +24,67 @@ public class Processo extends Thread{
         
         this.inicioRam = inicioRam;
         this.finalRam = finalRam;
-        tamanho = finalRam - inicioRam;
+        tamanho = (finalRam - inicioRam) + 1;
         this.entrada =  new FabricaDeEntradas(tamanho).getNewEntrada();
+        System.out.println(entrada);
                
+    }
+    
+    String lerComando(){
+        String comando = null;
+        
+        
+        
+        if(entrada.length() > 4){
+         int i = 0;
+         for(i = 0; i < this.entrada.length(); i++){
+            if(this.entrada.charAt(i) == 'W' || this.entrada.charAt(i) == 'R'){
+            break;
+            }
+         }
+        
+            comando = this.entrada.substring(0, i+1);
+        }else{
+            comando = "Acabaram os comando!";
+        }
+        return comando;
+    }
+    
+    String pegarComando(){
+        int i = 0; String comando = "";
+      
+            for(i = 0; i < this.entrada.length(); i++){
+                if(this.entrada.charAt(i) == 'W' || this.entrada.charAt(i) == 'R'){
+                break;
+                }
+
+            }
+        
+        comando = this.entrada.substring(0, i+1);
+
+        if(entrada.contains(",")){
+         this.entrada = this.entrada.substring(i+2, entrada.length());
+        }
+        
+
+         return comando;
     }
     
     void teste() throws InterruptedException{
     
-        for(int i = 0; i <= tamanho; i++){
-            
+        while(entrada.length() > 3){
             this.sleep(1000);
-            mv.atualizarValor(i+inicioRam, 100);
+            String comando = pegarComando();
+            String[] comandoTratado = comando.split("-");
+            if(comandoTratado[1].equals("R")){
+                mv.pegarValor(Integer.parseInt(comandoTratado[0])+inicioRam);
+            }else if(comandoTratado[1].equals("W")){
+                mv.atualizarValor(Integer.parseInt(comandoTratado[0])+inicioRam, 100);
+            }
             
             
         }
+        
         emExecucao = false;
         
     }
