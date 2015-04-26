@@ -14,8 +14,6 @@ import java.util.ArrayList;
 public class WS {
 
     
-
-    
     public int executarWs(int tempoVirtual, ArrayList<Pagina> paginas){
     
         int idade = 0, t = 20, indicePaginaAntiga = -1, maiorIdade = 0;

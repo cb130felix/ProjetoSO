@@ -17,6 +17,7 @@ public class Processo extends Thread{
     boolean emExecucao;
     Virtual mv;
     int inicioRam, finalRam, tamanho;
+    String entrada;
     
 
     public Processo(int inicioRam, int finalRam) {
@@ -24,6 +25,7 @@ public class Processo extends Thread{
         this.inicioRam = inicioRam;
         this.finalRam = finalRam;
         tamanho = finalRam - inicioRam;
+        this.entrada =  new FabricaDeEntradas(tamanho).getNewEntrada();
                
     }
     
@@ -32,7 +34,7 @@ public class Processo extends Thread{
         for(int i = 0; i <= tamanho; i++){
             
             this.sleep(1000);
-            mv.pegarValor(i+inicioRam);
+            mv.atualizarValor(i+inicioRam, 100);
             
             
         }

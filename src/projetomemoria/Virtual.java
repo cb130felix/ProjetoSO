@@ -61,28 +61,17 @@ public class Virtual {
             }// fim do for
             
             if(teste == memoriaFisica.valores.size()){
-                
-                
-                int indicePaginaDescartada=0;
-                // FAZ O WS AQUI, GAY!
-                // SE EU NÃO ME ENGANO, O MÉTODO DE WS IRÁ ME RETORNAR QUAL INDICE DA MEMORIA RAM QUE EU VOU PODER DESCATAR
-                // AÍ É SÓ PEGAR ESSE VALOR, VERIFICAR AS RESTRIÇÕES (AQUELA PUTARIA DE MODIFICADO, ALTERADO, REFERECIADO)
-                // E ATUALIZAR A MEMÓRIA NESSE TAL INDICE. CASO EU TENHA ALGUMA RESTRIÇÃO, EU VOU SALVAR ALGO NO HD (OU NÃO).
-                // temp = moldura do retorno do ws;
-               
-                indicePaginaDescartada = ws.executarWs(tempoVirtual, paginas);
-                //System.out.println("Falta de página! Entrou[" + endereco + "] / Saiu["+indicePaginaDescartada+"}");
-                //System.out.println(paginas.get(indicePaginaDescartada).enderecoFisico);
+           
+                //WS vai indicar qual a página virtual que vai vazar
+                int indicePaginaDescartada = ws.executarWs(tempoVirtual, paginas);
                 temp = paginas.get(indicePaginaDescartada).enderecoFisico;
                 
                 if(paginas.get(teste).modificada == true){
-                //Atualiza o disco
                     this.hd.valores.set(indicePaginaDescartada, memoriaFisica.valores.get(temp));
+                    //Se ela tiver sido modificada, atualizar no HD né broder
                 }
                 
-                paginas.get(indicePaginaDescartada).limpar();
-                
-            }else{//System.out.println("Tinha espaço de memória!");
+                paginas.get(indicePaginaDescartada).limpar();// Limpando os dados da página que perdeu o mapeamento pra memória física
                 
             }
             
@@ -103,7 +92,7 @@ public class Virtual {
     
     }// FIM DO MÉTODO PEGAR VALOR
     
-    public void atualizarValor(int endereco,  int valor){
+    public synchronized void atualizarValor(int endereco,  int valor){
         
         int temp = -1,teste = 0;
         
@@ -136,7 +125,17 @@ public class Virtual {
             
             if(teste == memoriaFisica.valores.size()){
                 
-                    // FUDEU, WS!
+                //WS vai indicar qual a página virtual que vai vazar
+                int indicePaginaDescartada = ws.executarWs(tempoVirtual, paginas);
+                temp = paginas.get(indicePaginaDescartada).enderecoFisico;
+                
+                if(paginas.get(teste).modificada == true){
+                    this.hd.valores.set(indicePaginaDescartada, memoriaFisica.valores.get(temp));
+                    //Se ela tiver sido modificada, atualizar no HD né broder
+                }
+                
+                paginas.get(indicePaginaDescartada).limpar();// Limpando os dados da página que perdeu o mapeamento pra memória física
+                
                     
                 }
                 
