@@ -12,6 +12,9 @@ import java.util.logging.Logger;
  *
  * @author Renan
  */
+
+//Essa classe é criado por pura viadagem. ATF puro, só pra mostar na tela como
+//se encontra o SO nesse determinado momento.
 public class SOInfo extends Thread{
     
      SistemaOperacional so;

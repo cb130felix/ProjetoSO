@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class HD {
         
-    //public Integer[] valores;
     ArrayList<Integer> valores; 
     
     public HD(int tamanho){

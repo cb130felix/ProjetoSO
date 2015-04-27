@@ -28,6 +28,8 @@ public class SistemaOperacional {
         
    }
    
+   
+   //SO tem dois métodos. Add ou iniciar processos. Nomes autoexplicativos :v
    public void iniciarProcessos(){
    
        for(int i = 0 ; i < processos.size(); i++){

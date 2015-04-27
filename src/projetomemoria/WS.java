@@ -25,16 +25,16 @@ public class WS {
             if(paginas.get(i).presente == true){
                 
                 if(paginas.get(i).referenciado == true){
-
+                    // Só atualizando o tempo das páginas referenciadas
                     paginas.get(i).tempo = tempoVirtual;
 
                 }else{
                     idade =  tempoVirtual - paginas.get(i).tempo;
-                   
+                    //Caso idade > 20, a página roda... achei isso desnecessário, faz o codo ser redundante
                     if(idade > t){
                         indicePaginaAntiga = i;
                     }
-                    
+                    //Aqui eu calculo a página mais velha pra dizer qual vai sair da MV
                     if(idade > maiorIdade){
                             maiorIdade = idade;
                             indicePaginaAntiga = i;

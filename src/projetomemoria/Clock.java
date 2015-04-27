@@ -27,7 +27,9 @@ public class Clock extends Thread{
     public void run(){
         
         
-        
+        //A cada ciclo de clock incremento +1 no tempoVirtual da mv e atualizo o
+        //tempo das páginas que foram referenciadas recentemente
+           
         while(ligado){
             
             
@@ -38,8 +40,7 @@ public class Clock extends Thread{
             }
             time++;
             mv.tempoVirtual++;
-            //System.out.println(time);
-            for (int i = 0; i < mv.paginas.size(); i++) {
+             for (int i = 0; i < mv.paginas.size(); i++) {
                 if(mv.paginas.get(i).referenciado == true){
                     mv.paginas.get(i).referenciado = false;
                     mv.paginas.get(i).tempo = this.time;

@@ -31,10 +31,9 @@ public class Processo extends Thread{
     }
     
     String lerComando(){
+        
+        //Esse método é puro e simplesmente ATF, só pra imprimir as informações bonitinhas na tela
         String comando = null;
-        
-        
-        
         if(entrada.length() > 4){
          int i = 0;
          for(i = 0; i < this.entrada.length(); i++){
@@ -51,6 +50,7 @@ public class Processo extends Thread{
     }
     
     String pegarComando(){
+        //Esse método retorna o primeiro comando da lista de entradas do processo
         int i = 0; String comando = "";
       
             for(i = 0; i < this.entrada.length(); i++){
@@ -70,8 +70,9 @@ public class Processo extends Thread{
          return comando;
     }
     
-    void teste() throws InterruptedException{
+    void iniciarProcesso() throws InterruptedException{
     
+        //Aqui eu vou pegar os comandos de 1 em 1 até eles acabarem :D
         while(entrada.length() > 3){
             this.sleep(1000);
             String comando = pegarComando();
@@ -92,7 +93,7 @@ public class Processo extends Thread{
     public void run(){
         
         try {
-            teste();
+            iniciarProcesso();
         } catch (InterruptedException ex) {
             Logger.getLogger(Processo.class.getName()).log(Level.SEVERE, null, ex);
         }
