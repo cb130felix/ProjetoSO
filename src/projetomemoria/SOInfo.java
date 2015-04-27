@@ -29,13 +29,13 @@ public class SOInfo extends Thread{
                     
                     for (int i = 0; i < so.processos.size(); i++) {
                         
-                        System.out.println("Processo["+i+"]"+": " + " /Inicio: " + so.processos.get(i).inicioRam + " /Proximo comando: " + so.processos.get(i).lerComando() );
+                        System.out.println("Processo["+i+"]"+": " + " /Inicio: " + so.processos.get(i).inicioRam + " /Final: " + so.processos.get(i).finalRam + " /Proximo comando: " + so.processos.get(i).lerComando() );
                     }
                     
                     System.out.println("");
                     
                     for(int i = 0; i < so.mv.paginas.size(); i++){
-                    System.out.println("Virtual["+i+"]-> M: " + so.mv.paginas.get(i).modificada + " /R: " + so.mv.paginas.get(i).referenciado + " /P:" + so.mv.paginas.get(i).presente + " /Molddura: " + so.mv.paginas.get(i).enderecoFisico + " /Tempo: " + so.mv.paginas.get(i).tempo);
+                    System.out.println("Virtual["+i+"]-> M: " + so.mv.paginas.get(i).modificada + " /R: " + so.mv.paginas.get(i).referenciado + " /P:" + so.mv.paginas.get(i).presente + " /Moldura: " + so.mv.paginas.get(i).enderecoFisico + " /Tempo: " + so.mv.paginas.get(i).tempo);
                     }
                     //Imprimindo a memória fisica
                     System.out.print("\nMemoria Física { ");
