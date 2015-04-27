@@ -66,7 +66,7 @@ public class Virtual {
                 int indicePaginaDescartada = ws.executarWs(tempoVirtual, paginas);
                 temp = paginas.get(indicePaginaDescartada).enderecoFisico;
                 
-                if(paginas.get(teste).modificada == true){
+                if(paginas.get(indicePaginaDescartada).modificada == true){
                     this.hd.valores.set(indicePaginaDescartada, memoriaFisica.valores.get(temp));
                     //Se ela tiver sido modificada, atualizar no HD né broder
                 }
@@ -133,8 +133,9 @@ public class Virtual {
                 int indicePaginaDescartada = ws.executarWs(tempoVirtual, paginas);
                 temp = paginas.get(indicePaginaDescartada).enderecoFisico;
                 
-                if(paginas.get(teste).modificada == true){
-                    this.hd.valores.set(indicePaginaDescartada, memoriaFisica.valores.get(temp));
+                if(paginas.get(indicePaginaDescartada).modificada == true){
+                   this.hd.valores.set(indicePaginaDescartada, memoriaFisica.valores.get(temp));
+                    
                     //Se ela tiver sido modificada, atualizar no HD né broder
                 }
                 

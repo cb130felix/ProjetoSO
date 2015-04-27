@@ -79,7 +79,7 @@ public class Processo extends Thread{
             if(comandoTratado[1].equals("R")){
                 mv.pegarValor(Integer.parseInt(comandoTratado[0])+inicioRam);
             }else if(comandoTratado[1].equals("W")){
-                mv.atualizarValor(Integer.parseInt(comandoTratado[0])+inicioRam, 100);
+                mv.atualizarValor(Integer.parseInt(comandoTratado[0])+inicioRam, 24);
             }
             
             
