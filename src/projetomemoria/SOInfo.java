@@ -41,7 +41,7 @@ public class SOInfo extends Thread{
                     System.out.println("");
                     
                     for(int i = 0; i < so.mv.paginas.size(); i++){
-                    System.out.println("Virtual["+i+"]-> M: " + so.mv.paginas.get(i).modificada + " /R: " + so.mv.paginas.get(i).referenciado + " /P:" + so.mv.paginas.get(i).presente + " /Moldura: " + so.mv.paginas.get(i).enderecoFisico + " /Tempo: " + so.mv.paginas.get(i).tempo);
+                    System.out.println("Virtual["+i+"]-> M: " + so.mv.paginas.get(i).modificada + "\t/R: " + so.mv.paginas.get(i).referenciado + "\t/P:" + so.mv.paginas.get(i).presente + " \t/Moldura: " + so.mv.paginas.get(i).enderecoFisico + "\t/Tempo: " + so.mv.paginas.get(i).tempo);
                     }
                     //Imprimindo a memória fisica
                     System.out.print("\nMemoria Física { ");
