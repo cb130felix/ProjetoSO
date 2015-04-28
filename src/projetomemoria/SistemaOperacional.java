@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class SistemaOperacional {
     
+    SOInfo info;
     Virtual mv;
     Clock clock;   
     ArrayList<Processo> processos = new ArrayList<Processo>();
@@ -31,13 +32,14 @@ public class SistemaOperacional {
    
    //SO tem dois métodos. Add ou iniciar processos. Nomes autoexplicativos :v
    public void iniciarProcessos(){
-   
+       
        for(int i = 0 ; i < processos.size(); i++){
            processos.get(i).start();
            processos.get(i).emExecucao = true;
            
        }
-       SOInfo info = new SOInfo(this);
+       info = new SOInfo(this);
+       info.pausa = false;
        info.start();
        
    }

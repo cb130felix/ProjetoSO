@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  */
 public class Clock extends Thread{
    
+    boolean pausa = true;
     Virtual mv;
     public int time = 0;
     boolean ligado = true;
@@ -32,12 +33,13 @@ public class Clock extends Thread{
            
         while(ligado){
             
-            
+           
             try {
                 this.sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Clock.class.getName()).log(Level.SEVERE, null, ex);
             }
+            if(pausa == false){
             time++;
             mv.tempoVirtual++;
              for (int i = 0; i < mv.paginas.size(); i++) {
@@ -46,7 +48,7 @@ public class Clock extends Thread{
                     mv.paginas.get(i).tempo = this.time;
                 }
             }
-            
+            }
         }
     }
     

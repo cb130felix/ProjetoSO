@@ -14,12 +14,13 @@ public class ProjetoMemoria {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
      
         
         int exemplo = 1;
         SistemaOperacional so = new SistemaOperacional(20); // Sistema Operacional sendo criado com um HD e MV de tamanho 20 e RAM de 10
         
+
         //Aqui a gente tem dois exemplos, é só escolher um e rodar pra ver ele funcionando.
         //No SO da pra adicionar processos. Ao criar um processo você precisa informar de onde
         //um processo começa a enxergar a memória até onde ele termina de enxergar ela
@@ -39,6 +40,7 @@ public class ProjetoMemoria {
         //é muito grande, já que a quantidade de páginas desse processo é menor.
         //Logo o HD provavelmente não vai ser atualizado com o valor 24 nos índices
         //referentes ao processo 2
+        
         if(exemplo == 1){
             so.addProcesso(new Processo(0,10));
             so.addProcesso(new Processo(11,15));
@@ -53,6 +55,12 @@ public class ProjetoMemoria {
         so.iniciarProcessos();
        
        
+        System.out.println("\n\n\n\n\t\t\t>>>>>>>>>> Pressione Enter para iniciar o simulador de memoria virtual! <<<<<<<<<");
+        System.out.println("\t\t>>>>>>>>>> Durante a execução, pressioner enter novamente para pausar/despausar o programa! <<<<<<<<<");
+        
+        Pausa pausa = new Pausa(so);
+        pausa.start();
+        
         
     }
    

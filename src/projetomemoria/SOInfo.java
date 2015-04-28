@@ -17,15 +17,18 @@ import java.util.logging.Logger;
 //se encontra o SO nesse determinado momento.
 public class SOInfo extends Thread{
     
+     boolean pausa = false;
      SistemaOperacional so;
-
+     
     public SOInfo(SistemaOperacional so) {
         this.so = so;
     }
     
     public void interfaceTexto(boolean ligado) throws InterruptedException{
         while(ligado){
-             
+            
+                sleep(300);
+                if(pausa == false){
                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                     
                     System.out.println("Tempo virtual: " + so.clock.time);
@@ -52,9 +55,10 @@ public class SOInfo extends Thread{
                     System.out.print(so.mv.hd.valores.get(i) + ", ");
                     }
                     System.out.println(" }");
+                    System.out.println(">>>>>>>>>>> Pressione Enter para pausar ou despausar o processo!");
                     
                     
-                    sleep(300);
+                    
                     int j = 0;
                     int i;
                     for( i = 0 ; i < so.processos.size(); i++){
@@ -64,10 +68,15 @@ public class SOInfo extends Thread{
                     }
                     if(j == i){break;}
 
+                    
+        
+        
+        
+        }
+         
         }
         
         this.so.clock.ligado = false;
-   
     }
     
     public void run(){

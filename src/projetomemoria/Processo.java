@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class Processo extends Thread{
     
-    boolean emExecucao;
+    boolean emExecucao, pausa = false;
     Virtual mv;
     int inicioRam, finalRam, tamanho;
     String entrada;
@@ -74,15 +74,18 @@ public class Processo extends Thread{
     
         //Aqui eu vou pegar os comandos de 1 em 1 até eles acabarem :D
         while(entrada.length() > 3){
-            this.sleep(1000);
-            String comando = pegarComando();
-            String[] comandoTratado = comando.split("-");
-            if(comandoTratado[1].equals("R")){
-                mv.pegarValor(Integer.parseInt(comandoTratado[0])+inicioRam);
-            }else if(comandoTratado[1].equals("W")){
-                mv.atualizarValor(Integer.parseInt(comandoTratado[0])+inicioRam, 24);
-            }
             
+            
+            this.sleep(1500);
+            if(pausa == false){
+                String comando = pegarComando();
+                String[] comandoTratado = comando.split("-");
+                if(comandoTratado[1].equals("R")){
+                    mv.pegarValor(Integer.parseInt(comandoTratado[0])+inicioRam);
+                }else if(comandoTratado[1].equals("W")){
+                    mv.atualizarValor(Integer.parseInt(comandoTratado[0])+inicioRam, 24);
+                }
+            }
             
         }
         
