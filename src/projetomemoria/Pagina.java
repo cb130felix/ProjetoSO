@@ -15,7 +15,7 @@ public class Pagina {
     boolean referenciado = false;
     boolean modificada = false;
     boolean presente = false;
-    Integer enderecoFisico = null, tempo = 0;
+    Integer enderecoFisico = null, tempo = 0; // Corresponde à moldura da página
     
     public void limpar(){
     

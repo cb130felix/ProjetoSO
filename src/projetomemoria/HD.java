@@ -21,7 +21,7 @@ public class HD {
         
         for (int x = 0; x < tamanho; x++) {
             
-            valores.add(x*100);
+            valores.add(x*100); // Adicionando valores quaisquer no HD
             
         }
     

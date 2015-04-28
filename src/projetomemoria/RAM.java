@@ -23,7 +23,7 @@ public class RAM {
         
             for (int i = 0; i < tamanho; i++) {
             
-                valores.add(null);
+                valores.add(null); // Iniciando a memória RAM vazia
             
             }
         

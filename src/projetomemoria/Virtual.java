@@ -27,7 +27,7 @@ public class Virtual {
         
         for (int i = 0; i < hd.valores.size(); i++) {
          
-          paginas.add(new Pagina());
+          paginas.add(new Pagina());// Adicionando as páginas na memória virtual, e ela tem o mesmo tamanho do HD
            
         }
         
@@ -40,21 +40,21 @@ public class Virtual {
         
         int temp = -1,teste = 0;
         
-        if(paginas.get(endereco).presente == false){// verificando se existe mapeamento
+        if(paginas.get(endereco).presente == false){// verificando se existe mapeamento com a memória física
             
             
             for (int i = 0; i < memoriaFisica.valores.size(); i++) {
                 
-                if(memoriaFisica.valores.get(i) == null){
+                if(memoriaFisica.valores.get(i) == null){ // procurando um espaço na memória física que esteja livre
                 
                     temp = i;
                     break;
                 }
                 
-                else{// se esse contador for do tamanho da memoria fisica, quer dizer que todos o endereços de memoria estão cheios
+                else{
                     
                     teste++;
-                
+                    // se esse contador for do tamanho da memoria fisica, quer dizer que todos o endereços de memoria estão cheios
                 }
                 
                 
@@ -62,24 +62,25 @@ public class Virtual {
             
             if(teste == memoriaFisica.valores.size()){
            
-                //WS vai indicar qual a página virtual que vai vazar
+                //WS vai indicar qual a página virtual que vai removida
                 int indicePaginaDescartada = ws.executarWs(tempoVirtual, paginas);
-                temp = paginas.get(indicePaginaDescartada).enderecoFisico;
+                temp = paginas.get(indicePaginaDescartada).enderecoFisico;// verificando o mapeamento que existe entre a página 
+                                                                          // selecionada pelo WS                          
                 
                 if(paginas.get(indicePaginaDescartada).modificada == true){
                     this.hd.valores.set(indicePaginaDescartada, memoriaFisica.valores.get(temp));
-                    //Se ela tiver sido modificada, atualizar no HD né broder
+                    //Se ela tiver sido modificada, atualizar no HD 
                 }
                 
                 paginas.get(indicePaginaDescartada).limpar();// Limpando os dados da página que perdeu o mapeamento pra memória física
                 
             }
             
-            memoriaFisica.valores.set(temp, hd.valores.get(endereco)); 
+            memoriaFisica.valores.set(temp, hd.valores.get(endereco)); // atualizando o valor da memória física
             paginas.get(endereco).referenciado = true;
             paginas.get(endereco).presente = true;
             paginas.get(endereco).tempo = tempoVirtual;
-            paginas.get(endereco).enderecoFisico = temp;
+            paginas.get(endereco).enderecoFisico = temp; // atualizando o mapeamento
             
             return memoriaFisica.valores.get(temp);
         }// fim do if
